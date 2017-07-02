@@ -10,7 +10,7 @@ def parse_options():
         )
 
     n = parser.parse_args()
-    path = n.path
+    path = Path(n.path)
     print("Path: " + str(path))
     return path
 
@@ -26,9 +26,9 @@ def extract_and_save(file):
             fi.write(parts[0])
         with file_movie.open('wb') as fm:
             fm.write(parts[1])
-        print(str(file.name + ' - Split'))
+        print(str(file) + ' - Split')
     else:
-        print(str(file.name) + ' - Not a MotionPhoto')
+        print(str(file) + ' - Not a MotionPhoto')
 
 def process_images(path):
     if isinstance(path, list):
@@ -39,7 +39,7 @@ def process_images(path):
     if path.is_file():
         extract_and_save(path)
     else:
-        for file in path.glob('*.jpg'):
+        for file in path.glob('**/*.jpg'):
             extract_and_save(file)
 
 
