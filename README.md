@@ -10,7 +10,7 @@ It's a command line ruby script that splits your S7/S7 Edge motion photos in to 
 ## Example  
 
 ```bash
-$ python motion-photo-extractor.py  #Splits everything in current directory
+$ python motion-photo-extractor.py  #Splits everything in current directory (recursive search)
 
 or
 
